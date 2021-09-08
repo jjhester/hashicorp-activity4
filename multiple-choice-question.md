@@ -1,24 +1,49 @@
 ---
-title: Sample Question
+title: Sample Question v2A
 type: select_one
-shuffle_options: [choose-true-or-false]
-blooms: [choose-a-blooms-level]
+shuffle_options: true
+blooms: 3
 correct_response: b
 options:
   - id: a
-    text: “Try `fileset("id_rsa.pub")`”
+    text: "`fileset("id_rsa.pub")`"
   - id: b
-    text: Enter `file("id_rsa.pub")`
+    text: "`file("id_rsa.pub")`"
   - id: c
-    text: "filebase64("id_rsa.pud")"
+    text: "`filebase64("id_rsa.pub")`"
   - id: d
-    text: "none of the above would work"
+  - text: "`fileexists("id_rsa.pub")`"
   - id: e
-    text: "All of the above"
-  - id: f
   - text: "`templatefile("id_rsa.pub")`"
-  - id: g
-  - text: "Use `filebase64("id_rsa.pub")`"
 ---
 
-Terraform has several Built-in command’s for reading files. They are `file`, `filebase64`, `fileexists`, and `templatefile`. Which Built-in terraform function should a developer choose who was requested to write terraform code. He is going to need to read some input from a local file called id_rsa.pub that resides in the same directory as the configruation use to import the file’s contents as a string.
+You are developing a Terraform solution that requires the public key stored in the local file **id_rsa.pub**.
+
+Which code should you write to output the text in **id_rsa.pub**?
+
+
+---
+title: Sample Question v2B
+type: select_one
+shuffle_options: true
+blooms: 3
+correct_response: b
+options:
+  - id: a
+    text: "`fileset`"
+  - id: b
+    text: "`file`"
+  - id: c
+    text: "`filebase64`"
+  - id: d
+  - text: "`fileexists`"
+  - id: e
+  - text: "`templatefile`"
+---
+
+You are developing a Terraform solution that includes an SSH server.
+
+Which function should you use to retrieve the public key from a local text file?
+
+
+
