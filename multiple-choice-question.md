@@ -41,7 +41,7 @@ options:
   - text: "`templatefile`"
 ---
 
-You are developing a Terraform solution that includes an SSH server.
+You are developing a Terraform solution that includes an secure shell (SSH) server.
 
 Which function should you use to retrieve the public key from a local text file?
 
