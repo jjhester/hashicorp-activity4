@@ -1,25 +1,53 @@
 ---
-title: "Sample Scenario"
+title: "Sample Scenario v2"
 ---
 
-There is a single HashiCorp Vault cluster provisioned at the following IP address:
+### Your Environment
 
- ### `scenario-cluster-vault`:
-- Vault Address: 127.0.0.1:8200
-- Vault Token: s.f7Ea3C3ojOYE0GRLzmhSG
+A HashiCorp Vault cluster is provisioned as follows:
 
-The AppRole auth method has been enabled on the approle/ path. A role has been created and has the following properties:
+ `scenario-cluster-vault`
+ 
+* Vault Address
+: 127.0.0.1:8200
+* Vault Token
+: s.f7Ea3C3ojOYE0GRLzmhSG
 
-- Role Name: appy7
-- Vault policy: policy7
-- Roll ID: xxxxxxxx-xxxxxxxx-xxxxxxxx-xxxxxxxxxxx
+The AppRole auth method has been enabled on the `approle/` path with the following properties:
 
-Additionally, there is an application server which requires the use of the Vault Agent to retrieve and manage a Vault token to be stored in a local file. The Vault binary is already in the $PATH. The application server is called `scenario-node-appserver`.
+* Role Name
+: appy7
+* Vault policy
+: policy7
+* Role ID
+: xxxxxxxx-xxxxxxxx-xxxxxxxx-xxxxxxxxxxx
 
-### Application Server:
+The application server is configured as follows:
 
-- Server Address: <IP_Address>
-- Vault agent Config File: /etc/vault/agent7.hcl
-- Sink Location: /etc/vault/token.json
+`scenario-node-appserver`
 
-Bucky is going to need to Securely configure Vault Agent Auto-Auth and Token Sink. Bucky has an application that needs to retrieve credentials from Vault, even though the application was not architected to interact directly with Vault. Bucky uses the Vault Agent to retrieve a Vault token and keep it renewed automatically. Using the information provided above, configure the application server to use the Vault Agent to retrieve a Vault Token. The Vault Agent should use approle for authentication, therefore a SecretID needs to be generated in Vault. When retrieving the token from vault, the resulting token should be protected using response wrapping on the Auth method. Write the token to the token.json file path. Important Note: you can validate the configuration by viewing the contents of the sink. If a token does not exist, the configuration is not correct.
+* Server Address
+: <IP_Address>
+* Vault Agent Config File
+: /etc/vault/agent7.hcl
+* Sink Location
+: /etc/vault/token.json
+
+The Vault token should be stored in the sink location. The Vault binary is already in the **$PATH**.
+
+### Instructions
+
+You are configuring securely an application to retrieve credentials from the Vault. The Vault Agent should retrieve and automatically renew a Vault token using Auto-Auth and Token Sink.
+
+Using the information provided above, configure the application server as follows:
+
+1. Generate a `SecretID` in the Vault for the approle.
+2. Retrieve a Vault token using the Vault Agent. 
+3. Protect the Vault token using response wrapping.
+4. Write the Vault token to the sink location.
+
+### Important Notes
+
+* You can validate the configuration by viewing the sink contents.
+* If the Vault token does not exist, the configuration is not correct.
+
