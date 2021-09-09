@@ -13,7 +13,7 @@ A HashiCorp Vault cluster is provisioned as follows:
 * Vault Token
 : s.f7Ea3C3ojOYE0GRLzmhSG
 
-The AppRole auth method has been enabled on the `approle/` path with the following properties:
+The `approle/` path has the AppRole auth method enabled with the following properties:
 
 * Role Name
 : appy7
@@ -39,11 +39,11 @@ The Vault token should be stored in the sink location. The Vault binary is alrea
 
 You are configuring securely an application to retrieve credentials from the Vault. The Vault Agent should retrieve and automatically renew a Vault token using Auto-Auth and Token Sink.
 
-Using the information provided above, configure the application server as follows:
+Given the information provided above, configure the application server as follows:
 
 1. Generate a `SecretID` in the Vault for the approle.
 2. Retrieve a Vault token using the Vault Agent. 
-3. Protect the Vault token using response wrapping.
+3. Protect the Vault token using response wrapping on the Auth method.
 4. Write the Vault token to the sink location.
 
 ### Important Notes
